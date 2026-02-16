@@ -53,6 +53,7 @@ defmodule WebserviceHandler.ApiDtoHandler do
            payload: payload,
            repo: repo
          })
+        Stores.MemoryStore.add(event_model)
         event_model
      end)}
   end

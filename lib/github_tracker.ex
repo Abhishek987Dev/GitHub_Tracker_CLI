@@ -13,6 +13,7 @@ defmodule GithubTracker do
       {:ok, data} ->
         case WebserviceHandler.ApiDtoHandler.parseResponse(data) do
           {:ok, dataModel} ->
+            Stores.FileStore.saveToLocal()
             case Ui.CliUi.display(dataModel) do
               {:ok, rendered} ->
                 IO.puts(rendered)
